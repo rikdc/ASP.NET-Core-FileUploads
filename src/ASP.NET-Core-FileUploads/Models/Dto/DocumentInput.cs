@@ -1,4 +1,7 @@
-﻿namespace ASP.NET_Core_FileUploads.Models.Dto
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
+
+namespace ASP.NET_Core_FileUploads.Models.Dto
 {
     public class DocumentInput
     {
@@ -7,7 +10,6 @@
         public string Name { get; set; }
 
         [Required]
-        [FileExtensions(Extensions = "jpg,jpeg,doc,docx,pdf")]
         public IFormFile File { get; set; }
     }
 }

@@ -2,20 +2,17 @@
     $("[data-form-uploader]").submit(function (evt) {
         evt.preventDefault();
 
-        var fileUpload = $("#file").get(0);
-        var files = fileUpload.files;
-        var data = new FormData();
-        for (var i = 0; i < files.length ; i++) {
-            data.append(files[i].name, files[i]);
-        }
+        var data = new FormData(this);
+
+        debugger;
         $.ajax({
             type: "POST",
             url: "/api/documents/",
             contentType: false,
             processData: false,
             data: data,
-            success: function (message) {
-                alert(message);
+            success: function () {
+                alert('The file has been uploaded');
             },
             error: function () {
                 alert("There was error uploading files!");
