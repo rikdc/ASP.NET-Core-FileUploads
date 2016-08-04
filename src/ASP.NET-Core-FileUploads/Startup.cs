@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ASP.NET_Core_FileUploads.Repository;
+using ASP.NET_Core_FileUploads.Models.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP.NET_Core_FileUploads
 {
@@ -26,6 +28,8 @@ namespace ASP.NET_Core_FileUploads
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddDbContext<ApplicationDbContext>();
 
             services.AddScoped<IDocumentsRepository, DocumentsRepository>();
         }

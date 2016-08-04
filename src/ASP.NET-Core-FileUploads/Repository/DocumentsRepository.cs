@@ -1,4 +1,5 @@
 ﻿using ASP.NET_Core_FileUploads.Models;
+using ASP.NET_Core_FileUploads.Models.Context;
 using ASP.NET_Core_FileUploads.Models.Dto;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Net.Http.Headers;
@@ -11,10 +12,13 @@ namespace ASP.NET_Core_FileUploads.Repository
     public class DocumentsRepository : IDocumentsRepository
     {
         private IHostingEnvironment _hostingEnvironment;
+        private ApplicationDbContext _context;
 
         public DocumentsRepository(
+            ApplicationDbContext context,
             IHostingEnvironment hostingEnvironment)
         {
+            _context = context;
             _hostingEnvironment = hostingEnvironment;
         }
 
@@ -40,6 +44,9 @@ namespace ASP.NET_Core_FileUploads.Repository
                 var inputStream = file.OpenReadStream();
                 await inputStream.CopyToAsync(fileStream);
             }
+
+            _context.Documents.Add(upload);
+            await _context.SaveChangesAsync();
 
             return upload;
         }
