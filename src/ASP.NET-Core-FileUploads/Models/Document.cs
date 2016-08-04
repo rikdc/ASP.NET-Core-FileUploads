@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ASP.NET_Core_FileUploads.Models
+﻿namespace ASP.NET_Core_FileUploads.Models
 {
     public class Document
     {
+        public string Name { get; set; }
+        public string PathToFile { get; set; }
     }
 }

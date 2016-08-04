@@ -4,7 +4,6 @@
 
         var data = new FormData(this);
 
-        debugger;
         $.ajax({
             type: "POST",
             url: "/api/documents/",
