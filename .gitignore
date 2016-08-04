@@ -1,0 +1,5 @@
+/.vs/ASP.NET-Core-FileUploads/v14/*.suo
+/src/ASP.NET-Core-FileUploads/wwwroot/lib/bootstrap
+/src/ASP.NET-Core-FileUploads/wwwroot/lib/jquery-validation-unobtrusive
+/src/ASP.NET-Core-FileUploads/wwwroot/lib/jquery-validation
+/src/ASP.NET-Core-FileUploads/wwwroot/lib/jquery
